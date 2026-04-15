@@ -1,45 +1,42 @@
-import React from "react";
 import facebook from "../../../assets/facebook.png";
 import instagram from "../../../assets/instagram.png";
 import twitter from "../../../assets/twitter.png";
+
+
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center bg-[#244d3f] text-primary-content p-10">
-      <p className="font-bold text-6xl text-white">KeenKeeper</p>
-      <p>
-        Your personal shelf of meaningful connections. Browse, tend, and nurture
-        the relationships that matter most.
-      </p>
-      <nav>
-        <h3 className="text-center text-xl font-semibold text-white">
-          Social Links
-        </h3>
-        <div className="grid grid-flow-col gap-4">
-          <a>
-            <img src={instagram} alt="" />
-          </a>
-          <a>
-            <img src={facebook} alt="" />
-          </a>
-          <a>
-            <img src={twitter} alt="" />
-          </a>
+    <footer className="bg-[#244d3f] pt-16 pb-10">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          {/* Logo & Description */}
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+             
+            </div>
+             <h2 className="text-6xl font-bold tracking-tighter text-white text-center">
+                KeenKeeper
+              </h2>
+            <p className="text-zinc-400 text-lg max-w-md">
+              Premium digital tools for creators, professionals, and businesses. Work smarter with our suite of powerful tools.
+            </p>
+          </div>
         </div>
-      </nav>
 
-      <div className="pt-8 border-t border-gray-500 flex flex-col md:flex-row items-center justify-between gap-[50vw] text-sm text-zinc-500">
-        <div>© {new Date().getFullYear()} DigiTools. All rights reserved.</div>
+        {/* Bottom Bar */}
+        <div className="mt-16 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
+          <div>© {new Date().getFullYear()} DigiTools. All rights reserved.</div>
 
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-red-400 transition">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:text-red-400 transition">
-            Terms of services
-          </a>
-          <a href="#" className="hover:text-red-400 transition">
-            Cookies
-          </a>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-red-400 transition">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-red-400 transition">
+              Terms of services
+            </a>
+            <a href="#" className="hover:text-red-400 transition">
+              Cookies
+            </a>
+          </div>
         </div>
       </div>
     </footer>
