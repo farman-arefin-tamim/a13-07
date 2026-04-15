@@ -1,4 +1,6 @@
 import React from "react";
+import { RiHome2Line } from "react-icons/ri";
+import { TfiStatsUp, TfiTimer } from "react-icons/tfi";
 
 const Header = () => {
   return (
@@ -10,9 +12,9 @@ const Header = () => {
           </h2>
         </div>
         <div className="flex gap-2">
-          <button className="btn">Home</button>
-          <button className="btn">Timeline</button>
-          <button className="btn">Stats</button>
+          <button className="btn"><RiHome2Line />Home</button>
+          <button className="btn"><TfiTimer />Timeline</button>
+          <button className="btn"><TfiStatsUp />Stats</button>
         </div>
       </div>
     </nav>
