@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-gray-500 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#fafafa]">
+        <div className="mt-16 pt-8 border-t border-gray-500 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-400">
           <div>© {new Date().getFullYear()} KeenKeeper. All rights reserved.</div>
 
           <div className="flex gap-6">
