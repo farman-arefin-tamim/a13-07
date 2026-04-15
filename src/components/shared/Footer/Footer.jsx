@@ -26,9 +26,8 @@ const Footer = () => {
           </a>
         </div>
       </nav>
-      <hr className="border-gray-500 h-1 w-[90vw]" />
-      {/* <div className="mt-16 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-500"> */}
-      <div>
+
+      <div className="pt-8 border-t border-gray-500 flex flex-col md:flex-row items-center justify-between gap-[50vw] text-sm text-zinc-500">
         <div>© {new Date().getFullYear()} DigiTools. All rights reserved.</div>
 
         <div className="flex gap-6">
