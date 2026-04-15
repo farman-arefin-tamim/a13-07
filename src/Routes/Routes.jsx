@@ -6,7 +6,13 @@ import NotFound from "../components/shared/NotFound/NotFound";
 export const router = createBrowserRouter([{
     path: "/",
     Component: Root,
-    children:[]
+    children:[
+        {
+            index: true,
+            element: <Root></Root>
+        }
+    ],
+    errorElement:<NotFound></NotFound>
     },
     
     
