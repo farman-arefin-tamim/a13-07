@@ -2,7 +2,7 @@ import { FaPlus } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="py-16">
       <div className="flex justify-center items-center flex-col gap-6">
         <h1 className="text-[#1f2937] text-4xl font-semibold">
           Friends to keep close in your life

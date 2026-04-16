@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router";
 import Root from "../Root";
 import NotFound from "../components/shared/NotFound/NotFound";
+import FriendDetails from "../components/FriendDetails/FriendDetails";
 
 
-export const router = createBrowserRouter([{
+export const router = createBrowserRouter([
+    {
     path: "/",
     Component: Root,
     children:[
@@ -14,7 +16,11 @@ export const router = createBrowserRouter([{
     ],
     errorElement:<NotFound></NotFound>
     },
-    
+    {
+        path:"/frienddetails/:id",
+        element:<FriendDetails></FriendDetails>,
+        loader: ()=> fetch('/data.json'),
+    }
     
 
 ]);

@@ -1,4 +1,5 @@
 import { use } from "react";
+import { Link } from "react-router";
 
 //  const loadData = async ()=>{
 //         try{
@@ -15,7 +16,6 @@ const friendsPromise = fetch("/data.json").then((res) => res.json());
 
 const Cards = () => {
   const friends = use(friendsPromise);
-  console.log(friends);
     const background = {
         "overdue": "badge-error",
         "almost due": "badge-warning",
@@ -23,12 +23,12 @@ const Cards = () => {
   };
   return (
     <div>
-      <h2 className="font-bold text-3xl text-center text-[#244d3f]">
+      <h2 className="font-bold pl-12 pb-8 text-3xl text-black">
         Your Friends
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto pb-8">
         {friends.map((friend) => (
-          <div key={friend.id} className="card bg-base-100 shadow-sm">
+          <Link to={`/frienddetails/${friend.id}`} key={friend.id} className="card bg-base-100 shadow-sm">
             <figure>
               <img
                src={friend.picture}
@@ -53,7 +53,7 @@ const Cards = () => {
                     <div className={`badge text-white mx-auto rounded-xl ${background[friend.status]}`}>{friend.status}</div>
                }
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
