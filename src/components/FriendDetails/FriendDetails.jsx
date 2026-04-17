@@ -1,9 +1,6 @@
 import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 
-import call from '../../assets/call.png';
-import text from '../../assets/text.png';
-import video from '../../assets/video.png';
 import { FriendContext } from '../context/FriendProvider';
 import { IoCall, IoVideocamOutline } from 'react-icons/io5';
 import { AiOutlineMessage } from 'react-icons/ai';
@@ -95,9 +92,9 @@ const FriendDetails = () => {
         <div className="card bg-base-100 shadow p-8 col-span-3">
           <h3 className="font-semibold mb-3">Quick Check-In</h3>
           <div className="grid grid-cols-3 gap-3">
-            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({"call": expectedFriend.id})}}><IoCall /><span>Call</span></button>
-            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({"text": expectedFriend.id})}}><AiOutlineMessage /><span>Text</span></button>
-            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({"video": expectedFriend.id})}}><IoVideocamOutline /><span>Video</span></button>
+            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({type : "call", friendId : expectedFriend.id})}}><IoCall /><span>Call</span></button>
+            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({type : "text", friendId : expectedFriend.id})}}><AiOutlineMessage /><span>Text</span></button>
+            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({type : "video", friendId : expectedFriend.id})}}><IoVideocamOutline /><span>Video</span></button>
           </div>
 
         </div>

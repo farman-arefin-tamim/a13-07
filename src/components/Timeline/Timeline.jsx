@@ -1,9 +1,19 @@
 import React, { useContext } from "react";
 import { FriendContext } from "../context/FriendProvider";
 
+import call from '../../assets/call.png';
+import text from '../../assets/text.png';
+import video from '../../assets/video.png';
+
 const Timeline = () => {
   const friendContext = useContext(FriendContext);
   const { storedFriend, storedState } = friendContext;
+
+  const iconMap = {
+   call: call,
+   text: text,
+   video: video
+};
 
   console.log(storedFriend);
   return (
@@ -15,6 +25,7 @@ const Timeline = () => {
           key={index}
           className="bg-base-100 shadow p-6 rounded-xl flex justify-between"
         >
+            <img src={iconMap[storedState.type]} alt="" />
           <div>
             <h3 className="font-semibold text-[#244d3f]">{friend.name}</h3>
 
