@@ -44,7 +44,7 @@ const FriendDetails = () => {
           {expectedFriend.email}
       </p>
       
-        <div className="row-span-3 bg-base-100 shadow p-4 space-y-2">
+        <div className="row-span-3 flex flex-col bg-base-100 shadow space-y-2">
           <button className="btn btn-ghost justify-start">Snooze 2 Weeks</button>
           <button className="btn btn-ghost justify-start">Archive</button>
           <button className="btn btn-ghost text-red-500 justify-start">Delete</button>
@@ -90,7 +90,7 @@ const FriendDetails = () => {
         <div className="card bg-base-100 shadow p-8 col-span-3">
           <h3 className="font-semibold mb-3">Quick Check-In</h3>
           <div className="grid grid-cols-3 gap-3">
-            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={call} alt="" /><span>Call</span></button>
+            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={call} className='h-full' alt="" /><span>Call</span></button>
             <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={text} alt="" /><span>Text</span></button>
             <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={video} alt="" /><span>Video</span></button>
           </div>
