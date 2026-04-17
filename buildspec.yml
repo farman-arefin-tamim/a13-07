@@ -16,7 +16,15 @@ phases:
   #   commands:
   #     - aws s3 sync dist/ s3://keenkeeper --delete
   #     - aws cloudfront create-invalidation --distribution-id E5WMGRUVCIQXX --paths "/*"
+  post_build:
+    commands:
+      - echo "Deploying build files to S3..."
+      - aws s3 sync dist/ s3://keenkeeper --delete
 
+      - echo "Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation \
+          --distribution-id E5WMGRUVCIQXX \
+          --paths "/*"
 artifacts:
   files:
     - '**/*'
