@@ -7,13 +7,12 @@ import video from '../../assets/video.png';
 
 const Timeline = () => {
   const friendContext = useContext(FriendContext);
-  const { storedFriend, storedState } = friendContext;
-
-  const iconMap = {
-   call: call,
-   text: text,
-   video: video
-};
+  const { storedFriend } = friendContext;
+  const background = {
+        Call : call,
+        Text : text,
+        Video : video
+  };
 
   console.log(storedFriend);
   return (
@@ -23,10 +22,11 @@ const Timeline = () => {
       {storedFriend.length>0 ? storedFriend.map((friend, index) => (
         <div
           key={index}
-          className="bg-base-100 shadow p-6 rounded-xl flex justify-between"
+          className="bg-base-100 shadow p-6 rounded-xl flex gap-4"
         >
+            <img src={background[friend.type]} alt="" />
           <div>
-            <h3 className="font-semibold text-[#244d3f]">{friend.name}</h3>
+            <h3 className="font-semibold text-[#244d3f]">{friend.type} With {friend.name}</h3>
 
             <p className="text-sm text-gray-500">{friend.next_due_date}</p>
           </div>

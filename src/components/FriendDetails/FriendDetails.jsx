@@ -14,7 +14,7 @@ const FriendDetails = () => {
     const friends = useLoaderData();
     const expectedFriend = friends.find((friend)=>friend.id == id);
     const friendContext = useContext(FriendContext);
-    const {handleFriend, setStoredState} = friendContext;
+    const {handleFriend} = friendContext;
   
     return (
         <div className="p-6 bg-base-200 min-h-screen">
@@ -92,9 +92,9 @@ const FriendDetails = () => {
         <div className="card bg-base-100 shadow p-8 col-span-3">
           <h3 className="font-semibold mb-3">Quick Check-In</h3>
           <div className="grid grid-cols-3 gap-3">
-            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({type : "call", friendId : expectedFriend.id})}}><IoCall /><span>Call</span></button>
-            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({type : "text", friendId : expectedFriend.id})}}><AiOutlineMessage /><span>Text</span></button>
-            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({type : "video", friendId : expectedFriend.id})}}><IoVideocamOutline /><span>Video</span></button>
+            <button className="btn " onClick={()=>handleFriend({...expectedFriend,type:"Call"})}><IoCall /><span>Call</span></button>
+            <button className="btn " onClick={()=>handleFriend({...expectedFriend,type:"Text"})}><AiOutlineMessage /><span>Text</span></button>
+            <button className="btn " onClick={()=>handleFriend({...expectedFriend,type:"Video"})}><IoVideocamOutline /><span>Video</span></button>
           </div>
 
         </div>

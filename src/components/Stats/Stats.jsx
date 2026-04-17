@@ -1,40 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Legend, Pie, PieChart, Tooltip } from "recharts";
+import { FriendContext } from "../context/FriendProvider";
 
 const Stats = () => {
+  const { storedFriend } = useContext(FriendContext);
+
+  const callCount = storedFriend.filter(f => f.type === "Call").length;
+  const textCount = storedFriend.filter(f => f.type === "Text").length;
+  const videoCount = storedFriend.filter(f => f.type === "Video").length;
+
   const data = [
-    { name: "Call", value: 400, fill: "purple" },
-    { name: "Text", value: 300, fill: "green" },
-    { name: "Video", value: 300, fill: "blue" },
+    { name: "Call", value: callCount, fill: "#8884d8" },
+    { name: "Text", value: textCount, fill: "#82ca9d" },
+    { name: "Video", value: videoCount, fill: "#ffc658" },
   ];
+
   return (
-    <div className="border border-amber-50 shadow-2xl py-12 my-8 bg-white-500 max-w-[60vw]  mx-auto">
-      <div className="flex justify-center">
-        <PieChart
-          style={{
-            width: "100%",
-            maxWidth: "500px",
-            maxHeight: "40vh",
-            aspectRatio: 1,
-          }}
-          responsive
-        >
-          <Pie
-            data={data}
-            innerRadius="80%"
-            outerRadius="100%"
-            // Corner radius is the rounded edge of each pie slice
-            cornerRadius="50%"
-            fill="#8884d8"
-            // padding angle is the gap between each pie slice
-            paddingAngle={5}
-            dataKey="value"
-            isAnimationActive={true}
+    <div className="max-w-6xl mx-auto space-y-4 my-4">
+      <h2 className="text-black text-2xl font-semibold mb-6 mt-4">Friendship Analytics</h2>
+        {
+            storedFriend.length>0 ?
+            <div className="border border-amber-50 shadow-2xl rounded-xl py-12 my-8 bg-white max-w-[60vw] mx-auto">
+             <h4 className="font-semibold text-[#244d3f] ml-4">By Interaction Type</h4>
+         <div className="flex justify-center items-center flex-col">
+             <PieChart width={400} height={400}>
+             <Pie
+              data={data}
+              innerRadius="80%"
+              outerRadius="100%"
+              cornerRadius="50%"
+              paddingAngle={5}
+              dataKey="value"
+              isAnimationActive={true}
           />
-        </PieChart>
-        <Legend></Legend>
-        <Tooltip></Tooltip>
-      </div>
+            <Tooltip />  
+            <Legend />   
+            </PieChart>
+        </div>
+        </div>
+        : <div className="text-black h-[60vh] text-5xl flex items-center justify-center font-bold"> There is no data available</div>
+    }
     </div>
   );
 };
