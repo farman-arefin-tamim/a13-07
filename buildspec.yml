@@ -12,7 +12,10 @@ phases:
     commands:
       - echo Building the React app...
       - npm run build
-
+  post_build:
+  commands:
+    - aws s3 sync dist/ s3://keenkeeper --delete
+    - aws cloudfront create-invalidation --distribution-id E5WMGRUVCIQXX --paths "/*"
 
 artifacts:
   files:

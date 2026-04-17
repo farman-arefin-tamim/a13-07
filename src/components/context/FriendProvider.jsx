@@ -6,6 +6,7 @@ export const FriendContext = createContext();
 const FriendProvider = ({ children }) => {
   const [storedFriend, setStoredFriend] = useState([]);
   const [storedState, setStoredState] = useState([]);
+  console.log(storedState);
   const handleFriend = (currentFriend) => {
     // const isExistFriend = storedFriend.find(
     //   (friend) => friend.id === currentFriend.id,
@@ -54,6 +55,7 @@ const FriendProvider = ({ children }) => {
     storedFriend,
     setStoredFriend,
     handleFriend,
+    setStoredState,
   };
   return (
     <FriendContext.Provider value={data}>{children}</FriendContext.Provider>

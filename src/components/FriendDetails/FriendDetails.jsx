@@ -5,6 +5,11 @@ import call from '../../assets/call.png';
 import text from '../../assets/text.png';
 import video from '../../assets/video.png';
 import { FriendContext } from '../context/FriendProvider';
+import { IoCall, IoVideocamOutline } from 'react-icons/io5';
+import { AiOutlineMessage } from 'react-icons/ai';
+import { MdOutlineDelete } from 'react-icons/md';
+import { HiOutlineArchive } from 'react-icons/hi';
+import { FaRegBell } from 'react-icons/fa';
 
 const FriendDetails = () => {
     const {id} = useParams();
@@ -12,8 +17,8 @@ const FriendDetails = () => {
     const friends = useLoaderData();
     const expectedFriend = friends.find((friend)=>friend.id == id);
     const friendContext = useContext(FriendContext);
-    const {handleFriend} = friendContext;
-    console.log(friendContext);
+    const {handleFriend, setStoredState} = friendContext;
+  
     return (
         <div className="p-6 bg-base-200 min-h-screen">
 
@@ -44,10 +49,10 @@ const FriendDetails = () => {
           {expectedFriend.email}
       </p>
       
-        <div className="row-span-3 flex flex-col bg-base-100 shadow space-y-2">
-          <button className="btn btn-ghost justify-start">Snooze 2 Weeks</button>
-          <button className="btn btn-ghost justify-start">Archive</button>
-          <button className="btn btn-ghost text-red-500 justify-start">Delete</button>
+        <div className="flex flex-col shadow space-y-2 w-full">
+          <button className="btn"><FaRegBell />Snooze 2 Weeks</button>
+          <button className="btn"><HiOutlineArchive />Archive</button>
+          <button className="btn text-red-500"><MdOutlineDelete />Delete</button>
         </div>
 
 
@@ -90,9 +95,9 @@ const FriendDetails = () => {
         <div className="card bg-base-100 shadow p-8 col-span-3">
           <h3 className="font-semibold mb-3">Quick Check-In</h3>
           <div className="grid grid-cols-3 gap-3">
-            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={call} className='h-full' alt="" /><span>Call</span></button>
-            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={text} alt="" /><span>Text</span></button>
-            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={video} alt="" /><span>Video</span></button>
+            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({"call": expectedFriend.id})}}><IoCall /><span>Call</span></button>
+            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({"text": expectedFriend.id})}}><AiOutlineMessage /><span>Text</span></button>
+            <button className="btn flex flex-col" onClick={()=>{handleFriend(expectedFriend); setStoredState({"video": expectedFriend.id})}}><IoVideocamOutline /><span>Video</span></button>
           </div>
 
         </div>

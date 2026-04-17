@@ -20,7 +20,7 @@ const Banner = () => {
       <div className="flex flex-cols-1 md:flex-row-w lg:flex-row justify-center gap-12 py-8">
         <div className="card w-65 bg-base-100 card-lg shadow-sm">
           <div className="card-body justify-center items-center">
-            <h2 className="card-title text-[#244d3f] text-2xl">10</h2>
+            <h2 className="card-title text-[#244d3f] text-2xl">8</h2>
             <p className="text-[#64748b]">
              Total Friends
             </p>
