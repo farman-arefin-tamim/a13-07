@@ -17,9 +17,9 @@ const friendsPromise = fetch("/data.json").then((res) => res.json());
 const Cards = () => {
   const friends = use(friendsPromise);
     const background = {
-        "overdue": "badge-error",
-        "almost due": "badge-warning",
-        "on-track": "badge-success"
+        "Overdue": "badge-error",
+        "Almost Due": "badge-warning",
+        "On-Track": "badge-success"
   };
   return (
     <div>

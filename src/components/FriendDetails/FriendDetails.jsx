@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 
 import call from '../../assets/call.png';
 import text from '../../assets/text.png';
 import video from '../../assets/video.png';
+import { FriendContext } from '../context/FriendProvider';
 
 const FriendDetails = () => {
     const {id} = useParams();
    
     const friends = useLoaderData();
     const expectedFriend = friends.find((friend)=>friend.id == id);
-    console.log(expectedFriend);
+    const friendContext = useContext(FriendContext);
+    const {handleFriend} = friendContext;
+    console.log(friendContext);
     return (
         <div className="p-6 bg-base-200 min-h-screen">
 
@@ -87,9 +90,9 @@ const FriendDetails = () => {
         <div className="card bg-base-100 shadow p-8 col-span-3">
           <h3 className="font-semibold mb-3">Quick Check-In</h3>
           <div className="grid grid-cols-3 gap-3">
-            <button className="btn flex flex-col"><img src={call} alt="" /><span>Call</span></button>
-            <button className="btn flex flex-col"><img src={text} alt="" /><span>Text</span></button>
-            <button className="btn flex flex-col"><img src={video} alt="" /><span>Video</span></button>
+            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={call} alt="" /><span>Call</span></button>
+            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={text} alt="" /><span>Text</span></button>
+            <button className="btn flex flex-col" onClick={()=>handleFriend(expectedFriend)}><img src={video} alt="" /><span>Video</span></button>
           </div>
 
         </div>
