@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Legend, Pie, PieChart, Tooltip } from "recharts";
+import { Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { FriendContext } from "../context/FriendProvider";
 
 const Stats = () => {
@@ -10,9 +10,9 @@ const Stats = () => {
   const videoCount = storedFriend.filter(f => f.type === "Video").length;
 
   const data = [
-    { name: "Call", value: callCount, fill: "#8884d8" },
-    { name: "Text", value: textCount, fill: "#82ca9d" },
-    { name: "Video", value: videoCount, fill: "#ffc658" },
+    { name: "Call", value: callCount, fill: "blue" },
+    { name: "Text", value: textCount, fill: "purple" },
+    { name: "Video", value: videoCount, fill: "green" },
   ];
 
   return (
@@ -20,10 +20,11 @@ const Stats = () => {
       <h2 className="text-black text-2xl font-semibold mb-6 mt-4">Friendship Analytics</h2>
         {
             storedFriend.length>0 ?
-            <div className="border border-amber-50 shadow-2xl rounded-xl py-12 my-8 bg-white max-w-[60vw] mx-auto">
+            <div className="border border-amber-50 shadow-2xl rounded-xl py-12 my-8 bg-white max-w-[70vw] mx-auto">
              <h4 className="font-semibold text-[#244d3f] ml-4">By Interaction Type</h4>
-         <div className="flex justify-center items-center flex-col">
-             <PieChart width={400} height={400}>
+         <div className="flex justify-center items-center flex-col ">
+             <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
              <Pie
               data={data}
               innerRadius="80%"
@@ -36,6 +37,7 @@ const Stats = () => {
             <Tooltip />  
             <Legend />   
             </PieChart>
+        </ResponsiveContainer>
         </div>
         </div>
         : <div className="text-black h-[60vh] text-5xl flex items-center justify-center font-bold"> There is no data available</div>
