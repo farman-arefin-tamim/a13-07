@@ -17,7 +17,7 @@ const Timeline = () => {
 
   console.log(storedFriend);
   return (
-    <div className="max-w-6xl mx-auto space-y-4">
+    <div className="max-w-6xl mx-auto space-y-4 my-4">
       <h2 className="text-black text-2xl font-semibold mb-6 mt-4">Timeline</h2>
 
       {storedFriend.length>0 ? storedFriend.map((friend, index) => (
@@ -25,7 +25,6 @@ const Timeline = () => {
           key={index}
           className="bg-base-100 shadow p-6 rounded-xl flex justify-between"
         >
-            <img src={iconMap[storedState.type]} alt="" />
           <div>
             <h3 className="font-semibold text-[#244d3f]">{friend.name}</h3>
 
