@@ -40,7 +40,7 @@ const Cards = () => {
                 <h2 className="card-title justify-center">
                 {friend.name}
               </h2>
-              <p className="text-center">{friend.days_since_contact}</p>
+              <p className="text-center text-gray-500">{friend.days_since_contact}</p>
               </div>
               <div className="card-actions justify-center">
                 {

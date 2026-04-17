@@ -76,7 +76,7 @@ const FriendDetails = () => {
         <div>
           <h3 className="font-semibold text-[#244d3f]">Relationship Goal</h3>
           <p className="text-sm text-gray-500">
-            Connect every <span class="font-bold">30 days</span>
+            Connect every <span className="font-bold">30 days</span>
           </p>
         </div>
 

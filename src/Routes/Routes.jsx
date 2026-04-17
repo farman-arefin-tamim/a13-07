@@ -11,7 +11,8 @@ export const router = createBrowserRouter([
     children:[
         {
             index: true,
-            element: <Root></Root>
+            element: <Root></Root>,
+            
         }
     ],
     errorElement:<NotFound></NotFound>
@@ -20,7 +21,10 @@ export const router = createBrowserRouter([
         path:"/frienddetails/:id",
         element:<FriendDetails></FriendDetails>,
         loader: ()=> fetch('/data.json'),
-    }
+        errorElement:<NotFound></NotFound>
+    },
+   
+
     
 
 ]);

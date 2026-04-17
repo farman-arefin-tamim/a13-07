@@ -2,6 +2,7 @@ import Header from './components/shared/Header/Header';
 import Footer from './components/shared/Footer/Footer';
 import Banner from './components/Banner/Banner';
 import Cards from './components/Cards/Cards';
+import Timeline from './components/Timeline/Timeline';
 
 const Root = () => {
     return (
@@ -9,6 +10,7 @@ const Root = () => {
             <Header></Header>
             <Banner></Banner>
             <Cards></Cards>
+            <Timeline></Timeline>
             <Footer></Footer>
         </div>
     );
